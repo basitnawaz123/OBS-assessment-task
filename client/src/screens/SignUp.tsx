@@ -24,7 +24,7 @@ const SignUpScreen = () => {
       await signUp(values).then((res) => {
         if (res.success) {
           formik.resetForm();
-          navigate("/sign-in");
+          navigate("/");
         }
       });
     },
