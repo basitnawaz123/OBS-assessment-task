@@ -12,3 +12,9 @@ Assesment task from OBS
 
 1. npm install inside client folder
 2. npm run dev
+
+# Routes
+
+1. / => login route
+2. /sign-up => sign up
+3. /users => list users
