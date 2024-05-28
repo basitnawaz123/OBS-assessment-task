@@ -8,7 +8,7 @@ module.exports = (app) => {
     return constructResponse(res, responseData);
   });
 
-  app.get("/api/user", async (req, res) => {
+  app.get("/api/users", async (req, res) => {
     const responseData = await UserService.getAllUsers();
     return constructResponse(res, responseData);
   });

@@ -23,6 +23,7 @@ connection.once("open", function () {
 
 // Controllers
 
+require("./controllers/authController")(app);
 require("./controllers/userController")(app);
 
 // start the server

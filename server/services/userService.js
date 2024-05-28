@@ -1,8 +1,12 @@
 const UsersModel = require("../models/Users");
+const { generatePasswordHash } = require("../utils/utility");
 
 module.exports = class UserService {
   async createUser(body) {
     try {
+      body.password = await generatePasswordHash(body.password);
+      body.email = body.email.toLowerCase();
+
       let userExists = await UsersModel.findOne({ email: body.email });
       if (userExists) {
         return {
@@ -30,7 +34,7 @@ module.exports = class UserService {
 
   async getAllUsers() {
     try {
-      let result = await UsersModel.find({});
+      let result = await UsersModel.find({}, "-password");
       return {
         data: result,
         status: 200,
